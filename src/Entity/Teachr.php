@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\TeachrRepository;
+use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TeachrRepository::class)]
@@ -18,6 +19,11 @@ class Teachr
 
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
