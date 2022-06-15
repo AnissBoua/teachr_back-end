@@ -20,6 +20,15 @@ class Teachr
     #[ORM\Column(type: 'datetime_immutable')]
     private $createdAt;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $formation;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $description;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $photo;
+
     public function __construct()
     {
         $this->createdAt = new DateTimeImmutable();
@@ -50,6 +59,42 @@ class Teachr
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getFormation(): ?string
+    {
+        return $this->formation;
+    }
+
+    public function setFormation(?string $formation): self
+    {
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(?string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }
